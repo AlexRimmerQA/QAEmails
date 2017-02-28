@@ -9,8 +9,8 @@ Claimed By: Nafi
 Progress: Working progress...
 
 Create Account Page
-Claimed By: 
-Progress:
+Claimed By: Alex 
+Progress:Starting...
 
 Forgot Password Page
 Claimed By: Nafi
