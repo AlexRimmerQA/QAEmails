@@ -30,7 +30,7 @@
 
 
         <tr>
-            <td colspan="2"></a>
+            <td colspan="2">
                 <asp:CheckBox ID="CheckBox1" runat="server" Text="Remember password" />
             </td>
             
