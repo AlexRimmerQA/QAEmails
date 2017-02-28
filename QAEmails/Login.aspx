@@ -9,6 +9,48 @@
 <body>
     <form id="form1" runat="server">
     <div>
+         <table style="height: 133px; width: 304px">
+
+          <tr>
+            <th colspan="2"> <h2>Login</h2></th>
+            <br />
+          </tr>
+
+          <tr>
+            <td><asp:Label ID="Label1" runat="server" Text="Email: "></asp:Label></td>
+            <td><asp:TextBox ID="TextBox1" runat="server"></asp:TextBox></td>
+        <br />
+        </tr>
+
+        <tr>
+            <td><asp:Label ID="Label2" runat="server" Text="Password: "></asp:Label></td>
+            <td><asp:TextBox ID="TextBox2" runat="server"></asp:TextBox></td>
+        <br />
+        </tr>
+
+
+        <tr>
+            <td colspan="2"></a>
+                <asp:CheckBox ID="CheckBox1" runat="server" Text="Remember password" />
+            </td>
+            
+        <br />
+        </tr>
+
+        <tr>
+            <td colspan="2"><a href="#">Forgot password</a></td>
+            
+        <br />
+        </tr>
+                
+        <br />
+          <tr>
+            <td></td>
+            <td><asp:Button ID="Button1" runat="server" Text="Login" /></td>
+        </tr>
+
+
+    </table>
     
     </div>
     </form>
