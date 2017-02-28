@@ -13,5 +13,32 @@ namespace QAEmails
 		{
 
 		}
-	}
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            
+                if (TextBox1.Text=="")
+                {
+                    Label3.Text = "Please enter password";
+                }
+
+                else if (TextBox2.Text=="")
+                {
+                    Label3.Text = "Please enter re-enter password";
+                }
+
+                else if (TextBox1.Text!=TextBox2.Text)
+                {
+                    Label3.Text = "Please enter same password";
+                }
+
+                else
+                {
+                    Response.Redirect("Login.aspx");
+                }
+            
+
+            
+        }
+    }
 }

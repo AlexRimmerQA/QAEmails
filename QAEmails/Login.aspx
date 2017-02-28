@@ -31,14 +31,14 @@
 
         <tr>
             <td colspan="2">
-                <asp:CheckBox ID="CheckBox1" runat="server" Text="Remember password" />
+                <asp:CheckBox ID="CheckBox1" runat="server" Text="Remember password" OnCheckedChanged="CheckBox1_CheckedChanged" />
             </td>
             
         <br />
         </tr>
 
         <tr>
-            <td colspan="2"><a href="#">Forgot password</a></td>
+            <td colspan="2"><a href="ForgotPassword.aspx">Forgot password</a></td>
             
         <br />
         </tr>

@@ -31,8 +31,10 @@
                 
         <br />
           <tr>
-            <td></td>
-            <td><asp:Button ID="Button1" runat="server" Text="Submit" /></td>
+            <td>
+                <asp:Label ID="Label3" runat="server"></asp:Label>
+              </td>
+            <td><asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click" /></td>
         </tr>
 
 
