@@ -1,8 +1,8 @@
 QAEmails
 
 Home Page
-Claimed By: 
-Progress:
+Claimed By: Alex
+Progress: Made front end
 
 Login Page
 Claimed By: 
@@ -13,12 +13,12 @@ Claimed By:
 Progress:
 
 Forgot Password Page
-Claimed By: 
-Progress:
+Claimed By: Nafi
+Progress: Font end work
 
 New Password Page
-Claimed By: 
-Progress:
+Claimed By: Nafi
+Progress: Font end work
 
 MasterInbox Master Page
 Claimed By: 
