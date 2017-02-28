@@ -5,8 +5,8 @@ Claimed By: Alex
 Progress: Made front end
 
 Login Page
-Claimed By: 
-Progress:
+Claimed By: Nafi
+Progress: Working progress...
 
 Create Account Page
 Claimed By: 
