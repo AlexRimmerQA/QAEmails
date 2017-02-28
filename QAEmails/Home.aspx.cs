@@ -11,7 +11,7 @@ namespace QAEmails
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			//check cookies, get page colour, set page colour
+			PageBody.Attributes.Add("bgcolor", Request.Cookies["UserSettings"]["Colour"]);
 		}
 
 		protected void LoginButton_Click(object sender, EventArgs e)
@@ -26,22 +26,9 @@ namespace QAEmails
 
 		protected void RadioButtonList1_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			string colour = RadioButtonList1.SelectedValue;
-			switch(colour)
-			{
-				case "Red":
-					//do something
-					break;
-				case "Green":
-					//do something
-					break;
-				case "Blue":
-					//do something
-					break;
-				case "Yellow":
-					//do something
-					break;
-			}
+			PageBody.Attributes.Add("bgcolor", RadioButtonList1.SelectedValue);
+			Response.Cookies["UserSettings"]["Colour"] = RadioButtonList1.SelectedValue;
+			Response.Cookies["UserSettings"].Expires = DateTime.Now.AddDays(1d);
 		}
 	}
 }
