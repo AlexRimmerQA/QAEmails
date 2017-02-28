@@ -1,9 +1,7 @@
 # QAEmails
 
 Home Page
-
 Claimed By: 
-
 Progress:
 
 
