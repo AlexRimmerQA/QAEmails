@@ -76,6 +76,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\EmailDatabase.mdf" />
+    <Content Include="App_Data\EmailDatabase_log.ldf">
+      <DependentUpon>EmailDatabase.mdf</DependentUpon>
+    </Content>
     <Content Include="Compose.aspx" />
     <Content Include="CreateAccount.aspx" />
     <Content Include="ForgotPassword.aspx" />
