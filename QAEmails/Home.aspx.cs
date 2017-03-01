@@ -11,7 +11,14 @@ namespace QAEmails
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			PageBody.Attributes.Add("bgcolor", Request.Cookies["UserSettings"]["Colour"]);
+			try
+			{
+				PageBody.Attributes.Add("bgcolor", Request.Cookies["UserSettings"]["Colour"]);
+			}
+			catch(Exception ex)
+			{
+
+			}
 		}
 
 		protected void LoginButton_Click(object sender, EventArgs e)
