@@ -10,9 +10,11 @@ namespace QAEmails
 {
 	public partial class NewPassword : System.Web.UI.Page
 	{
-		protected void Page_Load(object sender, EventArgs e)
+        string ea;
+        protected void Page_Load(object sender, EventArgs e)
 		{
-
+            ea = Session["EA"].ToString();
+            Label4.Text = ea;
 		}
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -35,17 +37,23 @@ namespace QAEmails
 
                 else
                 {
+
+                    SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Administrator\Source\Repos\QAEmails\QAEmails\App_Data\EmailDatabase.mdf;Integrated Security=True;Connect Timeout=30");
+                    SqlCommand cmd = new SqlCommand();
+
+                    cmd.Connection = con;
+                    con.Open();
+
+                    cmd.CommandText = "update Users set Password='"+TextBox2.Text+"' where EmailAddress='"+ea+"'";
+                    Response.Write(cmd.CommandText);
+
+
+
+                    cmd.ExecuteNonQuery();
                     Response.Redirect("Login.aspx");
                 }
 
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Administrator\Source\Repos\QAEmails\QAEmails\App_Data\EmailDatabase.mdf;Integrated Security=True;Connect Timeout=30");
-            SqlCommand cmd = new SqlCommand();
-
-            cmd.Connection = con;
-            con.Open();
-
-            cmd.CommandText = "SELECT * FROM Users WHERE EmailAddress='" + TextBox1.Text + "' AND Question='" + TextBox2.Text + "'";
-            Response.Write(cmd.CommandText);
+            
 
         }
     }

@@ -45,7 +45,8 @@ namespace QAEmails
 
             if (TextBox1.Text==na & TextBox2.Text==qu & TextBox3.Text==an)
             {
-                 Response.Redirect("NewPassword.aspx");
+                Session["EA"] = na;
+                Response.Redirect("NewPassword.aspx");
             }
 
             else

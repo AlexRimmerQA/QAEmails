@@ -16,6 +16,11 @@
             <br />
           </tr>
 
+        <tr>
+            <td colspan="2"><asp:Label ID="Label4" runat="server" Text=""></asp:Label></td>
+        <br />
+        </tr>
+
           <tr>
             <td><asp:Label ID="Label1" runat="server" Text="New password: "></asp:Label></td>
             <td><asp:TextBox ID="TextBox1" runat="server"></asp:TextBox></td>
