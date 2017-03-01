@@ -31,7 +31,7 @@
 
         <tr>
             <td colspan="2">
-                <asp:CheckBox ID="CheckBox1" runat="server" Text="Remember password" OnCheckedChanged="CheckBox1_CheckedChanged" />
+                <asp:CheckBox ID="CheckBox1" runat="server" Text="Remember me" OnCheckedChanged="CheckBox1_CheckedChanged" AutoPostBack="True" />
             </td>
             
         <br />
@@ -46,7 +46,7 @@
         <br />
           <tr>
             <td></td>
-            <td><asp:Button ID="Button1" runat="server" Text="Login" /></td>
+            <td><asp:Button ID="Button1" runat="server" Text="Login" OnClick="Button1_Click" /></td>
         </tr>
 
 

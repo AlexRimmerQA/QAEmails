@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlClient;
 
 namespace QAEmails
 {
@@ -36,9 +37,16 @@ namespace QAEmails
                 {
                     Response.Redirect("Login.aspx");
                 }
-            
 
-            
+            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Administrator\Source\Repos\QAEmails\QAEmails\App_Data\EmailDatabase.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlCommand cmd = new SqlCommand();
+
+            cmd.Connection = con;
+            con.Open();
+
+            cmd.CommandText = "SELECT * FROM Users WHERE EmailAddress='" + TextBox1.Text + "' AND Question='" + TextBox2.Text + "'";
+            Response.Write(cmd.CommandText);
+
         }
     }
 }

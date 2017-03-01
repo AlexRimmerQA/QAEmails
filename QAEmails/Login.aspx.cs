@@ -9,40 +9,51 @@ namespace QAEmails
 {
 	public partial class Login : System.Web.UI.Page
 	{
-		protected void Page_Load(object sender, EventArgs e)
+
+        protected void Page_Rendering(object sender, EventArgs e)
+        {
+            Response.Write("12345555555555555555555555555");
+        }
+        protected void Page_Load(object sender, EventArgs e)
 		{
+            if (Request.Cookies["Email"] == null)
+            {
+                Response.Write("no cokkies");
+                TextBox1.Text = "";
+            }
+            else
+                Response.Write("->" + Request.Cookies["Email"].Value);
 
             if (!IsPostBack)
             {
-
-
-                HttpCookie udata2 = Request.Cookies["userdata"];
-                if (udata2 != null )
-                {
-                    TextBox1.Text = udata2["Email"];
-                    TextBox2.Text = udata2["Password"];
-                    CheckBox1.Checked = true;
-                }
-
-                else 
-                {
+                if (Request.Cookies["Email"] != null)
+                    TextBox1.Text = Request.Cookies["Email"].Value;
+                else
                     TextBox1.Text = "";
+                if (Request.Cookies["Password"] != null)
                     TextBox2.Text = "";
-                    CheckBox1.Checked = false;
-                }
-
-               
             }
-		}
+        }
 
         protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
-            HttpCookie udata = new HttpCookie("userdata");
-            udata["Email"] = TextBox1.Text;
-            udata["Password"] = TextBox2.Text;
-            udata.Expires = DateTime.Now.AddDays(1);
-            Response.Cookies.Add(udata);            
-            
+           if (CheckBox1.Checked)
+            {
+                Response.Cookies["Email"].Value = TextBox1.Text.ToString();
+                Response.Cookies["Password"].Value = TextBox2.Text.ToString();
+            }
+            else
+            {
+                Response.Cookies["Email"].Expires = DateTime.Now.AddDays(-1);
+                Response.Cookies["Password"].Expires = DateTime.Now.AddDays(-1);
+            }
+            Response.Write("Login.aspx");
+            //}
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Inbox.aspx");
         }
     }
 }
