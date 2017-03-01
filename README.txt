@@ -30,7 +30,10 @@ Progress:
 
 Compose Page
 Claimed By: Alex
-Progress: DONE
+Progress: TODO:
+          Implement the user login into the compose page so it can send an email using the user account.
+          Send the email to each of the people in the CC
+          DONE:
           Page will load with the background colour set in the cookies from the home page
           There are 4 textboxes, To, CC, Subject and the main multi line textbox for the email content.
           There is a button which will take those details and create an email record.
@@ -38,4 +41,4 @@ Progress: DONE
           The TO textbox is required to be filled now.
 Read Page
 Claimed By: Alex
-Progress:
+Progress:Little
