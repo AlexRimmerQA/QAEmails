@@ -2,7 +2,8 @@ QAEmails
 
 Home Page
 Claimed By: Alex
-Progress: Made front end
+Progress: The colour radio buttons now set a cookie in ["UserSettings"]["Colour"] to the colour selected from the button.
+          The two buttons lead you onto the respective pages, Login and Create Account.
 
 Login Page
 Claimed By: Nafi
