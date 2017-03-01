@@ -30,11 +30,12 @@ Progress:
 
 Compose Page
 Claimed By: Alex
-Progress: Page will load with the background colour set in the cookies from the home page
+Progress: DONE
+          Page will load with the background colour set in the cookies from the home page
           There are 4 textboxes, To, CC, Subject and the main multi line textbox for the email content.
           There is a button which will take those details and create an email record.
-          TODO: Have the system check that the emails entered are correct emails which are in the database
-                Check that the to box is filled.
+          The system checks that the email is able to be send to a recipient.
+          The TO textbox is required to be filled now.
 Read Page
-Claimed By: 
+Claimed By: Alex
 Progress:
