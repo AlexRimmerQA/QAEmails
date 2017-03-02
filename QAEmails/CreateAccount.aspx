@@ -10,6 +10,23 @@
     <form id="form1" runat="server">
     <div>
     
+        Email Address<br />
+        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        <br />
+        Password<br />
+        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+        <br />
+        Re-enter Password<br />
+        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+        <br />
+        Security Question<br />
+        <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+        <br />
+        Security Answer<br />
+        <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+        <br />
+        <asp:Button ID="CreateButton" runat="server" OnClick="CreateButton_Click" Text="Create" />
+    
     </div>
     </form>
 </body>
