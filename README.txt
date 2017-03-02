@@ -7,7 +7,7 @@ Progress: The colour radio buttons now set a cookie in ["UserSettings"]["Colour"
 
 Login Page
 Claimed By: Nafi
-Progress: Working progress...
+Progress: Facing problem with the cookies: it does not save email and the pasword after it refreshes
 
 Create Account Page
 Claimed By: Alex 
