@@ -16,7 +16,7 @@ namespace QAEmails
 			catch (Exception ex) { }
 		}
 
-		protected void Button1_Click(object sender, EventArgs e)
+		protected void CreateButton_Click(object sender, EventArgs e)
 		{
 
 		}

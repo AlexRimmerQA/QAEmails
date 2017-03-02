@@ -25,7 +25,7 @@
         Security Answer<br />
         <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
         <br />
-        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Create" />
+        <asp:Button ID="CreateButton" runat="server" OnClick="CreateButton_Click" Text="Create" />
     
     </div>
     </form>
