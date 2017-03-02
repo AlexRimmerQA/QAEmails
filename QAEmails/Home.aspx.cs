@@ -11,7 +11,31 @@ namespace QAEmails
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			try
+			{
+				PageBody.Attributes.Add("bgcolor", Request.Cookies["UserSettings"]["Colour"]);
+			}
+			catch(Exception ex)
+			{
 
+			}
+		}
+
+		protected void LoginButton_Click(object sender, EventArgs e)
+		{
+			Response.Redirect("Login.aspx");
+		}
+
+		protected void CreateAccButton_Click(object sender, EventArgs e)
+		{
+			Response.Redirect("CreateAccount.aspx");
+		}
+
+		protected void RadioButtonList1_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			PageBody.Attributes.Add("bgcolor", RadioButtonList1.SelectedValue);
+			Response.Cookies["UserSettings"]["Colour"] = RadioButtonList1.SelectedValue;
+			Response.Cookies["UserSettings"].Expires = DateTime.Now.AddDays(1d);
 		}
 	}
 }
