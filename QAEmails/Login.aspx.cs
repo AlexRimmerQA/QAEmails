@@ -12,9 +12,6 @@ namespace QAEmails
 	public partial class Login : System.Web.UI.Page
 	{
 
-
-
-
         protected void Page_Rendering(object sender, EventArgs e)
         {
             //Response.Write("12345555555555555555555555555");
