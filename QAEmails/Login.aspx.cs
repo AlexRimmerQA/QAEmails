@@ -13,42 +13,42 @@ namespace QAEmails
 
         protected void Page_Rendering(object sender, EventArgs e)
         {
-            Response.Write("12345555555555555555555555555");
+            //Response.Write("12345555555555555555555555555");
         }
         protected void Page_Load(object sender, EventArgs e)
 		{
-            if (Request.Cookies["Email"] == null)
-            {
-                Response.Write("no cokkies");
-                TextBox1.Text = "";
-            }
-            else
-                Response.Write("->" + Request.Cookies["Email"].Value);
+  //          if (Request.Cookies["Email"] == null)
+  //          {
+  //              Response.Write("no cokkies");
+  //              TextBox1.Text = "";
+  //          }
+  //          else
+  //              Response.Write("->" + Request.Cookies["Email"].Value);
 
-            if (!IsPostBack)
-            {
-                if (Request.Cookies["Email"] != null)
-                    TextBox1.Text = Request.Cookies["Email"].Value;
-                else
-                    TextBox1.Text = "";
-                if (Request.Cookies["Password"] != null)
-                    TextBox2.Text = "";
-            }
+  //          if (!IsPostBack)
+  //          {
+  //              if (Request.Cookies["Email"] != null)
+  //                  TextBox1.Text = Request.Cookies["Email"].Value;
+  //              else
+  //                  TextBox1.Text = "";
+  //              if (Request.Cookies["Password"] != null)
+  //                  TextBox2.Text = "";
+  //          }
         }
 
         protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
-           if (CheckBox1.Checked)
-            {
-                Response.Cookies["Email"].Value = TextBox1.Text.ToString();
-                Response.Cookies["Password"].Value = TextBox2.Text.ToString();
-            }
-            else
-            {
-                Response.Cookies["Email"].Expires = DateTime.Now.AddDays(-1);
-                Response.Cookies["Password"].Expires = DateTime.Now.AddDays(-1);
-            }
-            Response.Write("Login.aspx");
+           //if (CheckBox1.Checked)
+           // {
+           //     Response.Cookies["Email"].Value = TextBox1.Text.ToString();
+           //     Response.Cookies["Password"].Value = TextBox2.Text.ToString();
+           // }
+           // else
+           // {
+           //     Response.Cookies["Email"].Expires = DateTime.Now.AddDays(-1);
+           //     Response.Cookies["Password"].Expires = DateTime.Now.AddDays(-1);
+           // }
+            //Response.Write("Login.aspx");
             //}
         }
 
@@ -74,7 +74,7 @@ namespace QAEmails
             }
             else
             {
-                this.Label3.Text = "User details not found. Check your username and password";
+                Label3.Text = "User details not found. Check your username and password";
             }
             r.Close();
             
