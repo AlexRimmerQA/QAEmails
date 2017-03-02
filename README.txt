@@ -27,8 +27,8 @@ Progress: Compose Link to take you to the compose page, logout link which takes 
           Will add more when extra is needed to be added to.
 
 Inbox Page
-Claimed By: 
-Progress:
+Claimed By: Nafi
+Progress:working progress...
 
 Compose Page
 Claimed By: Alex
