@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlClient;
 
 namespace QAEmails
 {
@@ -54,7 +55,29 @@ namespace QAEmails
         protected void Button1_Click(object sender, EventArgs e)
         {
 
-            Response.Redirect("Inbox.aspx");
+
+            SqlConnection con2 = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Administrator\Source\Repos\QAEmails\QAEmails\App_Data\EmailDatabase.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con2;
+            con2.Open();
+
+            cmd.CommandText = "SELECT * FROM Users WHERE EmailAddress='" + TextBox1.Text + "' AND Password='" + TextBox2.Text + "'";
+
+            SqlDataReader r = cmd.ExecuteReader();
+
+            if (r.Read())
+            {
+                Session["email"] = r["EmailAddress"].ToString();
+                Session["pass"] = r["Password"].ToString();
+
+                Response.Redirect("Inbox.aspx");
+            }
+            else
+            {
+                this.Label3.Text = "User details not found. Check your username and password";
+            }
+            r.Close();
+            
         }
     }
 }

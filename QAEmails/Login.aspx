@@ -38,7 +38,9 @@
         </tr>
 
         <tr>
-            <td colspan="2"><a href="ForgotPassword.aspx">Forgot password</a></td>
+            <td colspan="2"><a href="ForgotPassword.aspx">Forgot password</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Label ID="Label3" runat="server"></asp:Label>
+            </td>
             
         <br />
         </tr>
