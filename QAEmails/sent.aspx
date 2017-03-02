@@ -1,12 +1,17 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/InboxMaster.Master" AutoEventWireup="true" CodeBehind="Inbox.aspx.cs" Inherits="QAEmails.Inbox" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="sent.aspx.cs" Inherits="QAEmails.sent" %>
 <%@import namespace="System.Data.SqlClient"%>
 
+<!DOCTYPE html>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
     <div>
-		<br /><a href="sent.aspx">Sent</a> <br /> <a href="mdelete.aspx">Mail deleted</a><br /> <br />
+    
+         <br /><a href="sent.aspx">Sent</a> <br /> <a href="Inbox.aspx">Inbox</a><br /> <br />
         <table border="1" id="infotable" style="width:100%;">
             <tr>
                 
@@ -32,14 +37,14 @@
          n = Session["ne"].ToString();
 
 
-         cmd.CommandText = "select EmailId,[From],Subject,Date from Emails where [To]='"+n+"' and Deleted='N'";
+         cmd.CommandText = "select  EmailId,[To],Subject,Date from Emails where [To]<>'"+n+"' and Deleted='N'";
          SqlDataReader R2 = cmd.ExecuteReader();
 
 
              while (R2.Read())
              {
                 string id=R2["EmailId"].ToString();
-                 fr= R2["From"].ToString();
+                 fr= R2["To"].ToString();
                  su = R2["Subject"].ToString();
                  dt = R2["Date"].ToString();
 
@@ -61,6 +66,11 @@
       </table>
         
         <br />
-        <br />
-	</div>
-</asp:Content>
+        <br /
+
+
+
+    </div>
+    </form>
+</body>
+</html>
