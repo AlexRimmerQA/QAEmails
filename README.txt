@@ -7,7 +7,7 @@ Progress: The colour radio buttons now set a cookie in ["UserSettings"]["Colour"
 
 Login Page
 Claimed By: Nafi
-Progress: Working progress...
+Progress: Facing problem with the cookies: it does not save email and the pasword after it refreshes
 
 Create Account Page
 Claimed By: Alex 
@@ -28,7 +28,10 @@ Progress: Compose Link to take you to the compose page, logout link which takes 
 
 Inbox Page
 Claimed By: Nafi
-Progress:working progress...
+Progress: To be done:
+          check and fix the sent email logic
+          check box functionality need to be added
+          address book need to be added
 
 Compose Page
 Claimed By: Alex

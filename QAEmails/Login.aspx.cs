@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace QAEmails
 {
@@ -86,6 +87,28 @@ namespace QAEmails
                 Label3.Text = "User details not found. Check your username and password";
             }
             r.Close();
+
+            SqlDataAdapter sdata = new SqlDataAdapter(cmd);     //Represents a set of data commands and a database connection that are used to fill the DataSet and update a SQL Server database. 
+            DataSet ldata = new DataSet();                      //Represents an in-memory cache of data
+
+            sdata.Fill(ldata);                                  //add rows in dataset
+
+            if (ldata.Tables[0].Rows.Count > 0)
+            {
+                if (CheckBox1.Checked == true)
+                {
+                    Response.Cookies["email"].Value = TextBox1.Text;
+                    Response.Cookies["pass"].Value = TextBox2.Text;
+                    Response.Cookies["email"].Expires = DateTime.Now.AddDays(15);
+                    Response.Cookies["pass"].Expires = DateTime.Now.AddDays(15);
+                }
+                else
+                {
+                    Response.Cookies["email"].Expires = DateTime.Now.AddDays(-1);
+                    Response.Cookies["pass"].Expires = DateTime.Now.AddDays(-1);
+                }
+            }
+                Response.Redirect("Inbox.aspx");
             
         }
     }

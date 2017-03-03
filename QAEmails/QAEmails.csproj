@@ -82,6 +82,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="delete.aspx" />
+    <Content Include="mdelete1.aspx" />
     <Content Include="packages.config" />
     <Content Include="InboxMaster.Master" />
     <None Include="Web.Debug.config">
@@ -100,6 +102,8 @@
     <Content Include="Login.aspx" />
     <Content Include="NewPassword.aspx" />
     <Content Include="Read.aspx" />
+    <Content Include="restore.aspx" />
+    <Content Include="sent1.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -116,6 +120,13 @@
     </Compile>
     <Compile Include="CreateAccount.aspx.designer.cs">
       <DependentUpon>CreateAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="delete.aspx.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="delete.aspx.designer.cs">
+      <DependentUpon>delete.aspx</DependentUpon>
     </Compile>
     <Compile Include="ForgotPassword.aspx.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
@@ -152,6 +163,13 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="mdelete1.aspx.cs">
+      <DependentUpon>mdelete1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mdelete1.aspx.designer.cs">
+      <DependentUpon>mdelete1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="NewPassword.aspx.cs">
       <DependentUpon>NewPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -166,6 +184,20 @@
     </Compile>
     <Compile Include="Read.aspx.designer.cs">
       <DependentUpon>Read.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="restore.aspx.cs">
+      <DependentUpon>restore.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="restore.aspx.designer.cs">
+      <DependentUpon>restore.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sent1.aspx.cs">
+      <DependentUpon>sent1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sent1.aspx.designer.cs">
+      <DependentUpon>sent1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
