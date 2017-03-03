@@ -13,6 +13,17 @@ namespace QAEmails
 		{
 			try
 			{
+				if (Session["Valid"].ToString() != "True")
+				{
+					Response.Redirect("Home.aspx");
+				}
+			}
+			catch (Exception ex)
+			{
+				Response.Redirect("Home.aspx");
+			}
+			try
+			{
 				PageBody.Attributes.Add("bgcolor", Request.Cookies["UserSettings"]["Colour"]);
 			}
 			catch(Exception ex)
