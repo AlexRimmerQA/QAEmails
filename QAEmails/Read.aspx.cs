@@ -34,14 +34,16 @@ namespace QAEmails
 			}
 			try
 			{
-				//string emailID = Session["EmailID"].ToString();
-				string emailID = Request["ID"].ToString(); // change this to the above line when implemented with the inbox. inbox should create a session id to pass the email id
-
 				SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename='C:\\Users\\Administrator\\Source\\Repos\\QAEmails\\QAEmails\\App_Data\\EmailDatabase.mdf';Integrated Security=True");
 				SqlCommand cmd = new SqlCommand();
 				conn.Open();
 				cmd.Connection = conn;
-				cmd.CommandText = "SELECT * FROM Emails WHERE EmailId = '" + emailID + "'";
+				cmd.CommandText = "UPDATE Emails SET Seen = 'Y' WHERE EmailId = " + Request["ID"];
+				cmd.ExecuteNonQuery();
+
+				string emailID = Request["ID"].ToString(); // change this to the above line when implemented with the inbox. inbox should create a session id to pass the email id
+
+				cmd.CommandText = "SELECT * FROM Emails WHERE EmailId = '" + emailID + "' AND [To] = '" + Session["email"] + "' OR [From] = '" + Session["email"]+"'";
 				SqlDataReader r = cmd.ExecuteReader();
 
 				if (r.Read())
@@ -54,13 +56,14 @@ namespace QAEmails
 				}
 				else
 				{
-					Response.Write("There was a problem with retrieving the email.");
+					Response.Write("<script>alert('There was a problem with retrieving the email.')</script>");
 					Response.Redirect("Inbox.aspx");
 				}
 			}
 			catch(Exception ex)
 			{
-				Response.Write("There was a problem with retrieving the email.");
+				string stuff = ex.ToString();
+				Response.Write("<script>alert('There was a problem with retrieving the email.')</script>");
 				Response.Redirect("Inbox.aspx");
 			}
 		}
@@ -73,6 +76,7 @@ namespace QAEmails
 			cmd.Connection = conn;
 			cmd.CommandText = "UPDATE Emails SET Deleted = 'Y' WHERE EmailId = '" + Request["ID"].ToString() + "'";
 			cmd.ExecuteNonQuery();
+			Response.Redirect("Inbox.aspx");
 		}
 
 		protected void ReplyLink_Click(object sender, EventArgs e)
