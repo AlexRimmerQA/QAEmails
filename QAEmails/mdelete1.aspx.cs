@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace QAEmails
 {
-    public partial class mdelete : System.Web.UI.Page
+    public partial class mdelete1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

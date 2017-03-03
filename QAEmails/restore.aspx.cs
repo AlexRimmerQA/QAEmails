@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace QAEmails
 {
-    public partial class delete : System.Web.UI.Page
+    public partial class restore : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -41,7 +41,6 @@ namespace QAEmails
 
             }
             R1.Close();
-
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -55,14 +54,14 @@ namespace QAEmails
             int qaid = Convert.ToInt32(QAid);
 
             // cmd2.CommandText = "delete from Emails where EmailId='" + qaid + "'";
-            cmd2.CommandText = "update Emails set Deleted='Y' where EmailId='"+QAid+"'";
+            cmd2.CommandText = "update Emails set Deleted='N' where EmailId='" + QAid + "'";
             cmd2.ExecuteNonQuery();
             Response.Redirect("Inbox.aspx");
         }
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Inbox.aspx");
+            Response.Redirect("mdelete.aspx");
         }
     }
 }
