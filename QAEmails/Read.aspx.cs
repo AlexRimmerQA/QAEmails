@@ -14,21 +14,14 @@ namespace QAEmails
 		{
 			try
 			{
-				try
-				{
-					string colour = Request.Cookies["UserSettings"]["Colour"];
-					int red = Int32.Parse(colour.Substring(4, 3));
-					int green = Int32.Parse(colour.Substring(9, 3));
-					int blue = Int32.Parse(colour.Substring(14, 3));
-
-					emailContent.BackColor = System.Drawing.Color.FromArgb(red, green, blue);
-				}
-				catch (Exception ex)
-				{
-
-				}
+				string colour = Request.Cookies["UserSettings"]["Colour"];
+				int red = Int32.Parse(colour.Substring(4, 3));
+				int green = Int32.Parse(colour.Substring(9, 3));
+				int blue = Int32.Parse(colour.Substring(14, 3));
+			
+				emailContent.BackColor = System.Drawing.Color.FromArgb(red, green, blue);
 			}
-			catch(Exception ex)
+			catch (Exception ex)
 			{
 
 			}

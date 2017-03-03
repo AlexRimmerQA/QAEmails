@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
     
-         <br /><a href="sent1.aspx">Sent</a> <br /> <a href="Inbox.aspx">Inbox</a><br /><br /> <a href="mdelete1.aspx">Mail deleted</a> <br /><br />
+        <br /> <a href="Inbox.aspx">Inbox</a><br /><br /> <a href="mdelete1.aspx">Mail deleted</a> <br /><br />
         <h1>Sent email</h1><br />
         <table border="1" id="infotable" style="width:100%;">
             <tr>
