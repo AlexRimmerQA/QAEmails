@@ -11,8 +11,8 @@
 <body id ="PageBody" runat="server">
     <form id="form1" runat="server">
     <div>
-		<a href="Compose.aspx" style="position:absolute; left:1%; font-size:20px">Compose</a>
-		<a href="Home.aspx" style="position:absolute; left:90%; font-size:20px">Logout</a>
+		<a href="Compose.aspx" style="position:absolute; left:1%; font-size:20px">Compose</a>&nbsp;
+		<asp:LinkButton ID="LogoutButton" runat="server" style="position:absolute; left:90%; font-size:20px" OnClick="LogoutButton_Click">Logout</asp:LinkButton>
 		<br />
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>

@@ -48,15 +48,15 @@
              if(sen=="Y")
              {
                  Response.Write("<tr>");
-                 Response.Write("<td>"+fr+"</td>");
+                 Response.Write("<td> <a href='read.aspx?ID="+id+"'>" + fr + "</a></td>");
                  Response.Write("<td> <a href='read.aspx?ID="+id+"'>" + su + "</a></td>");
                  Response.Write("<td>"+dt+"</td>");
              }
              else
              {
                  Response.Write("<tr>");
-                 Response.Write("<td><b>"+fr+"</b></td>");
-                 Response.Write("<td> <a href='read.aspx?ID="+id+"'><b>" + su + "</b></a></td>");
+                 Response.Write("<td> <a href='read.aspx?ID="+id+"'>" + fr + "</a></td>");
+                 Response.Write("<td> <a href='read.aspx?ID="+id+"'>" + su + "</a></td>");
                  Response.Write("<td><b>"+dt+"</b></td>");
              }
 

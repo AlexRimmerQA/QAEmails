@@ -16,20 +16,27 @@ namespace QAEmails
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			if (!Page.IsPostBack) { 
-
-				try
+			try
+			{
+				if (Session["Valid"].ToString() == "True")
 				{
-					string toValue = Request["To"];
-					string ccValue = Request["CC"];
-					ToTextbox.Text = toValue;
-					CCTextbox.Text = ccValue;
-				}
-				catch (Exception ex)
-				{
+					if (!Page.IsPostBack)
+					{
+						try
+						{
+							string toValue = Request["To"];
+							string ccValue = Request["CC"];
+							ToTextbox.Text = toValue;
+							CCTextbox.Text = ccValue;
+						}
+						catch (Exception ex)
+						{
 
+						}
+					}
 				}
 			}
+			catch (Exception ex) { }
 		}
 
 		protected void SendButton_Click(object sender, EventArgs e)

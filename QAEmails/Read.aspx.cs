@@ -36,7 +36,7 @@ namespace QAEmails
 
 				string emailID = Request["ID"].ToString(); // change this to the above line when implemented with the inbox. inbox should create a session id to pass the email id
 
-				cmd.CommandText = "SELECT * FROM Emails WHERE EmailId = '" + emailID + "' AND [To] = '" + Session["email"] + "' OR [From] = '" + Session["email"]+"'";
+				cmd.CommandText = "SELECT * FROM Emails WHERE EmailId = '" + emailID + "' AND ([To] = '" + Session["email"] + "' OR [From] = '" + Session["email"]+"')";
 				SqlDataReader r = cmd.ExecuteReader();
 
 				if (r.Read())

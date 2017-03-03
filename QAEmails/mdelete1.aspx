@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div>
+	<div>
     <br /><a href="sent1.aspx">Sent</a> <br /> <a href="Inbox.aspx">Inbox</a><br /><br /><br />
         <h1>Deleted email</h1><br />
         <table border="1" id="infotable" style="width:100%;">

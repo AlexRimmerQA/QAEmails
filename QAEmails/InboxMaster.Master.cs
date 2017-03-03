@@ -20,5 +20,11 @@ namespace QAEmails
 
 			}
 		}
+
+		protected void LogoutButton_Click(object sender, EventArgs e)
+		{
+			Session.Abandon();
+			Response.Redirect("Home.aspx");
+		}
 	}
 }
