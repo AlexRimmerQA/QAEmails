@@ -17,24 +17,32 @@ namespace QAEmails
         }
         protected void Page_Load(object sender, EventArgs e)
 		{
-  //          if (Request.Cookies["Email"] == null)
-  //          {
-  //              Response.Write("no cokkies");
-  //              TextBox1.Text = "";
-  //          }
-  //          else
-  //              Response.Write("->" + Request.Cookies["Email"].Value);
+			try
+			{
+				PageBody.Attributes.Add("bgcolor", Request.Cookies["UserSettings"]["Colour"]);
+			}
+			catch (Exception ex)
+			{
 
-  //          if (!IsPostBack)
-  //          {
-  //              if (Request.Cookies["Email"] != null)
-  //                  TextBox1.Text = Request.Cookies["Email"].Value;
-  //              else
-  //                  TextBox1.Text = "";
-  //              if (Request.Cookies["Password"] != null)
-  //                  TextBox2.Text = "";
-  //          }
-        }
+			}
+			//          if (Request.Cookies["Email"] == null)
+			//          {
+			//              Response.Write("no cokkies");
+			//              TextBox1.Text = "";
+			//          }
+			//          else
+			//              Response.Write("->" + Request.Cookies["Email"].Value);
+
+			//          if (!IsPostBack)
+			//          {
+			//              if (Request.Cookies["Email"] != null)
+			//                  TextBox1.Text = Request.Cookies["Email"].Value;
+			//              else
+			//                  TextBox1.Text = "";
+			//              if (Request.Cookies["Password"] != null)
+			//                  TextBox2.Text = "";
+			//          }
+		}
 
         protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
@@ -56,7 +64,7 @@ namespace QAEmails
         {
 
 
-            SqlConnection con2 = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Administrator\Source\Repos\QAEmails\QAEmails\App_Data\EmailDatabase.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlConnection con2 = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename='C:\\Users\\Administrator\\Source\\Repos\\QAEmails\\QAEmails\\App_Data\\EmailDatabase.mdf';Integrated Security=True");
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con2;
             con2.Open();
@@ -69,6 +77,7 @@ namespace QAEmails
             {
                 Session["email"] = r["EmailAddress"].ToString();
                 Session["pass"] = r["Password"].ToString();
+				Session["Valid"] = "True";
 
                 Response.Redirect("Inbox.aspx");
             }

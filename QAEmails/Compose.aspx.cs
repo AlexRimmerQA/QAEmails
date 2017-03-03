@@ -39,30 +39,75 @@ namespace QAEmails
 				//INSERT INTO Emails VALUES('Shafeeq@gmail.com', 'Alex@gmail.com', 'Hello', 'I am writing to inform you that this was made via query', '2017-03-01 11:44:37.230', 'N', 'N')
 				SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename='C:\\Users\\Administrator\\Source\\Repos\\QAEmails\\QAEmails\\App_Data\\EmailDatabase.mdf';Integrated Security=True");
 				SqlCommand cmd = new SqlCommand();
+
+				string ccEmails = CCTextbox.Text;
+
+				//remove any spaces from the cc
+				string noSpaces = "";
+				for(int i = 0; i < ccEmails.Length; i++) { if (ccEmails[i] != ' ') noSpaces += ccEmails[i]; }
+
+				//convert to a string array by splitting it with ,
+				string[] splitEmails = noSpaces.Split(',');
+
+				//get a complete list by adding in the to address
+				string[] allEmails = new string[splitEmails.Length + 1];
+				allEmails[0] = ToTextbox.Text;
+				for(int i = 0; i < splitEmails.Length; i++)
+				{
+					allEmails[i + 1] = splitEmails[i];
+				}
+
+
 				try
 				{
+					//open the connection to the database
 					conn.Open();
 					cmd.Connection = conn;
-					cmd.CommandText = "SELECT EmailAddress FROM Users WHERE lower(EmailAddress) = '" + ToTextbox.Text.ToLower() + "'";
+					
+					//Test the email address is in the database to send to
+					cmd.CommandText = "SELECT EmailAddress FROM Users WHERE lower(EmailAddress) = '" + allEmails[0].ToLower() + "' ";
+					for (int i = 1; i < allEmails.Length; i++)
+					{
+						cmd.CommandText += "OR lower(EmailAddress) = '" + allEmails[i].ToLower() + "' ";
+					}
 					SqlDataReader r = cmd.ExecuteReader();
 
-					if(r.Read()) // If true, the email address exists and should therefore allow sending.
+					//Create an array with all the emails found in the database
+					List<string> readEmails = new List<string>();
+					while (r.Read())
 					{
-						r.Close();
-						DateTime localDate = DateTime.Now;
-						string date = localDate.ToString("yyyy-MM-dd HH:mm:ss.fff");
-						cmd.CommandText = "INSERT INTO Emails VALUES('" + ToTextbox.Text + "','" + CCTextbox.Text + "','" + SubjectTextbox.Text + "','" + EmailTextbox.Text + "','" + localDate.ToString("yyyy-MM-dd HH:mm:ss.fff") + "','N','N')";
-						cmd.ExecuteNonQuery();
-						Response.Redirect("Inbox.aspx");
+						readEmails.Add(r["EmailAddress"].ToString());
 					}
-					else // The email address does not exist, report error.
+					string[] readArray = readEmails.ToArray();
+
+					r.Close();
+
+					//for each found in the database
+					for(int i = 0; i < readArray.Length; i++)
 					{
-						Response.Write("<script>alert('The email you are sending to does not exist')</script>");
+						//if the email is both here and in the database, send the email
+						if(allEmails.Contains(readArray[i]))
+						{
+							DateTime localDate = DateTime.Now;
+							string date = localDate.ToString("yyyy-MM-dd HH:mm:ss.fff");
+
+							try
+							{
+								cmd.CommandText = "INSERT INTO Emails VALUES('" + allEmails[i] + "','";
+								cmd.CommandText += Session["email"] + "','" + SubjectTextbox.Text + "','" + EmailTextbox.Text + "','" + localDate.ToString("yyyy-MM-dd HH:mm:ss.fff") + "','N','N')";
+								cmd.ExecuteNonQuery();
+							}
+							catch (Exception sEx)
+							{
+								string temp = sEx.ToString();
+							}
+						}
 					}
+					Response.Redirect("Inbox.aspx");
 				}
 				catch (Exception ex)
 				{
-					
+					Response.Write("<script>alert('There was a problem connecting to the email server')</script>");
 				}
 			}
 			else

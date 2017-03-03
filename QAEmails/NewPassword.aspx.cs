@@ -13,7 +13,15 @@ namespace QAEmails
         string ea;
         protected void Page_Load(object sender, EventArgs e)
 		{
-            ea = Session["EA"].ToString();
+			try
+			{
+				PageBody.Attributes.Add("bgcolor", Request.Cookies["UserSettings"]["Colour"]);
+			}
+			catch (Exception ex)
+			{
+
+			}
+			ea = Session["EA"].ToString();
             Label4.Text = ea;
 		}
 

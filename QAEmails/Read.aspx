@@ -15,7 +15,7 @@
 		<asp:Label ID="subjectLabel" runat="server" Text="" Font-Size="22px" Font-Bold="True"></asp:Label>
 	</p>
 	<p>
-		<asp:TextBox ID="emailContent" runat="server" BorderStyle="None" Enabled="False" Height="400px" TextMode="MultiLine" Width="100%"></asp:TextBox>
+		<asp:TextBox ID="emailContent" runat="server" BorderStyle="None" Enabled="False" Height="400px" TextMode="MultiLine" Width="100%" ForeColor="Black"></asp:TextBox>
 	</p>
 
 </asp:Content>
